@@ -89,5 +89,8 @@ def build_pattern(self, content, file):
     return pattern
 ```
 
-## Testing
+### Testing
 Running unit tests: `$ python3 -m unittest`
+
+### Thank You
+- [Nikola Gigić](https://github.com/nikolagigic)
