@@ -1,0 +1,6 @@
+.idea/*
+venv
+core/__pycache__/*.pyc
+Modules/__pycache__/*.pyc
+test/Modules/__pycache__
+test/__pycache__
