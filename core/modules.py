@@ -47,6 +47,7 @@ class BaseClass(object):
     # Build dynamic regex pattern to locate vulnerabilities in given content
     def build_pattern(self, content, file):
         user_input = copy.deepcopy(self.user_input)
+        functions = copy.deepcopy(self.functions)
 
         variables = self.get_input_variables(self, content)
 
@@ -58,9 +59,9 @@ class BaseClass(object):
         else:
             blacklist_pattern = ""
 
-        self.functions = [self.functions_prefix + x for x in self.functions]
+        functions = [self.functions_prefix + x for x in functions]
 
-        pattern = r"((" + '|'.join(self.functions) + ")\s{0,}\(?\s{0,1}" + blacklist_pattern + ".*(" + '|'.join(user_input) + ").*)"
+        pattern = r"((" + '|'.join(functions) + ")\s{0,}\(?\s{0,1}" + blacklist_pattern + ".*(" + '|'.join(user_input) + ").*)"
         return pattern
 
     # Finds line in file on which vulnerability occurs
