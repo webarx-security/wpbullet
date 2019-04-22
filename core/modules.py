@@ -61,7 +61,7 @@ class BaseClass(object):
 
         functions = [self.functions_prefix + x for x in functions]
 
-        pattern = r"((" + '|'.join(functions) + ")\s{0,}\(?\s{0,1}" + blacklist_pattern + ".*(" + '|'.join(user_input) + ").*)"
+        pattern = r"((" + '|'.join(functions) + ")\s{0,}\(\s{0,1}" + blacklist_pattern + ".*(" + '|'.join(user_input) + ").*)"
         return pattern
 
     # Finds line in file on which vulnerability occurs
