@@ -1,6 +1,6 @@
 import re
 import copy
-
+from core import scanner
 
 class BaseClass(object):
 
@@ -42,7 +42,7 @@ class BaseClass(object):
         matches = self.run(self, content, file)
         for match in matches:
             if match[0]:
-                print(self.severity + " - " + self.name + " - " + file + ":" + str(self.get_match_line(content, match[0])) + " - " + match[0])
+                scanner.CODE_VULNERABILITIES.append([self.severity, self.name, file + ":" + str(self.get_match_line(content, match[0])), match[0] ])
 
     # Build dynamic regex pattern to locate vulnerabilities in given content
     def build_pattern(self, content, file):

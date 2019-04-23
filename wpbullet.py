@@ -1,5 +1,15 @@
 import argparse
 from core import scanner
+import signal
+import sys
+
+
+def signal_handler(sig, frame):
+    sys.exit(0)
+
+
+# Register signal handler
+signal.signal(signal.SIGINT, signal_handler)
 
 
 def main():
