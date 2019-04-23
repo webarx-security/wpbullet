@@ -7,3 +7,15 @@ from .XPATHInjection import XPATHInjection
 from .LDAPInjection import LDAPInjection
 from .HeaderInjection import HeaderInjection
 from .OptionsUpdate import OptionsUpdate
+
+classes = {
+    'CommandExecution': CommandExecution,
+    'CrossSiteScripting': CrossSiteScripting,
+    'FileInclusion': FileInclusion,
+    'HeaderInjection': HeaderInjection,
+    'InsecureEmail': InsecureEmail,
+    'LDAPInjection': LDAPInjection,
+    'OptionsUpdate': OptionsUpdate,
+    'SQLInjection': SQLInjection,
+    'XPATHInjection': XPATHInjection
+}

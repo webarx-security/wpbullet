@@ -26,23 +26,12 @@ def check_file(file,r, modules):
 
 # Process single given file, run all enabled modules
 def process_file(content, file, modules):
-    classes = {
-        'CommandExecution': CommandExecution,
-        'CrossSiteScripting': CrossSiteScripting,
-        'FileInclusion': FileInclusion,
-        'HeaderInjection': HeaderInjection,
-        'InsecureEmail': InsecureEmail,
-        'LDAPInjection': LDAPInjection,
-        'OptionsUpdate': OptionsUpdate,
-        'SQLInjection': SQLInjection,
-        'XPATHInjection': XPATHInjection
-    }
     for module in classes:
         if modules['enabled'][0] != '':
             if module in modules['enabled']:
-                classes[module](content, file)
+                classes[module].execute(classes[module], content, file)
         elif module not in modules['disabled']:
-            classes[module](content, file)
+            classes[module].execute(classes[module], content, file)
 
 
 # Read file and return It's content
