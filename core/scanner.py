@@ -1,4 +1,4 @@
-import Modules
+from Modules import *
 import os
 
 
@@ -26,13 +26,23 @@ def check_file(file,r, modules):
 
 # Process single given file, run all enabled modules
 def process_file(content, file, modules):
-    for module in dir(Modules):
-        if '__' not in module:
-            if modules['enabled'][0] != '':
-                if module in modules['enabled']:
-                    eval("Modules." + module + ".execute(Modules." + module + ", content, file)")
-            elif module not in modules['disabled']:
-                eval("Modules." + module + ".execute(Modules." + module + ", content, file)")
+    classes = {
+        'CommandExecution': CommandExecution,
+        'CrossSiteScripting': CrossSiteScripting,
+        'FileInclusion': FileInclusion,
+        'HeaderInjection': HeaderInjection,
+        'InsecureEmail': InsecureEmail,
+        'LDAPInjection': LDAPInjection,
+        'OptionsUpdate': OptionsUpdate,
+        'SQLInjection': SQLInjection,
+        'XPATHInjection': XPATHInjection
+    }
+    for module in classes:
+        if modules['enabled'][0] != '':
+            if module in modules['enabled']:
+                classes[module](content, file)
+        elif module not in modules['disabled']:
+            classes[module](content, file)
 
 
 # Read file and return It's content
