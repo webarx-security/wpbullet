@@ -8,7 +8,6 @@ import zipfile
 import io
 from terminaltables import AsciiTable, DoubleTable, SingleTable
 from colorama import Fore, Back, Style
-import copy
 import shutil
 
 
@@ -28,14 +27,14 @@ def scan(args):
 
     # Plugin repository URL
     if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] != ".zip":
-        print('URL given')
+        print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading plugin from: " + args.path)
         download_url = scrape_plugin_download_url(args.path)
         download_plugin(download_url)
         args.path = ".temp/"
 
     # Plugin ZIP download URL
     if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] == ".zip":
-        print("ZIP file given")
+        print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading ZIP plugin from: " + args.path)
         download_plugin(args.path)
         args.path = ".temp/"
 
@@ -75,6 +74,8 @@ def scan(args):
         print("Doing cleanup")
         shutil.rmtree('.temp')
 
+
+# Check given file for vulnerabilities
 def check_file(file,r, modules):
     path = os.path.join(r, file)
     content = read_file(path)
@@ -104,6 +105,7 @@ def read_file(path):
        return contents
 
 
+# Returns download URL from WordPress plugin repository page
 def scrape_plugin_download_url(plugin_url):
     r = requests.get(plugin_url)
     response = r.text
@@ -111,6 +113,7 @@ def scrape_plugin_download_url(plugin_url):
     return download_url
 
 
+# Downloads plugin from given URL and extracts it into .temp/
 def download_plugin(download_url):
     r = requests.get(download_url)
     z = zipfile.ZipFile(io.BytesIO(r.content))
