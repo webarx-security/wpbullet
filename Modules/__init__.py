@@ -7,6 +7,7 @@ from .XPATHInjection import XPATHInjection
 from .LDAPInjection import LDAPInjection
 from .HeaderInjection import HeaderInjection
 from .OptionsUpdate import OptionsUpdate
+from .ArbitraryFileUpload import ArbitraryFileUpload
 
 classes = {
     'CommandExecution': CommandExecution,
@@ -17,5 +18,6 @@ classes = {
     'LDAPInjection': LDAPInjection,
     'OptionsUpdate': OptionsUpdate,
     'SQLInjection': SQLInjection,
-    'XPATHInjection': XPATHInjection
+    'XPATHInjection': XPATHInjection,
+    'ArbitraryFileUpload': ArbitraryFileUpload
 }

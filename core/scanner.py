@@ -2,18 +2,43 @@ from Modules import *
 import os
 from core import passive_check
 from core.passive_check import passive_check as passive_check_processor
-
+import requests
+import re
+import zipfile
+import io
 from terminaltables import AsciiTable, DoubleTable, SingleTable
 from colorama import Fore, Back, Style
 import copy
+import shutil
 
 
 CODE_VULNERABILITIES = [
     ['Severity', 'Vulnerability', 'File', 'Info']
 ]
 
+
 # Main function to handle files processing
 def scan(args):
+
+    # Delete .temp folder from previous scan
+    try:
+        shutil.rmtree('.temp')
+    except FileNotFoundError:
+        pass
+
+    # Plugin repository URL
+    if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] != ".zip":
+        print('URL given')
+        download_url = scrape_plugin_download_url(args.path)
+        download_plugin(download_url)
+        args.path = ".temp/"
+
+    # Plugin ZIP download URL
+    if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] == ".zip":
+        print("ZIP file given")
+        download_plugin(args.path)
+        args.path = ".temp/"
+
     modules = {
         'enabled': [x.strip() for x in args.enabled.split(',')],
         'disabled': [x.strip() for x in args.disabled.split(',')]
@@ -45,6 +70,11 @@ def scan(args):
     print(table_instance.table)
     print()
 
+    # Cleanup
+    if args.cleanup:
+        print("Doing cleanup")
+        shutil.rmtree('.temp')
+
 def check_file(file,r, modules):
     path = os.path.join(r, file)
     content = read_file(path)
@@ -72,3 +102,16 @@ def read_file(path):
     if f.mode == 'r':
        contents = f.read()
        return contents
+
+
+def scrape_plugin_download_url(plugin_url):
+    r = requests.get(plugin_url)
+    response = r.text
+    download_url = re.search('\"downloadUrl\": \"(.+)\",', response)[1].replace("\\", "")
+    return download_url
+
+
+def download_plugin(download_url):
+    r = requests.get(download_url)
+    z = zipfile.ZipFile(io.BytesIO(r.content))
+    z.extractall(".temp")

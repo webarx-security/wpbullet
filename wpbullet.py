@@ -18,6 +18,8 @@ def main():
     parser.add_argument('--path', type=str, dest='path', help='Path to plugin to analyze')
     parser.add_argument('--enabled', type=str, dest='enabled', help='Modules to enable', default="")
     parser.add_argument('--disabled', type=str, dest='disabled', help='Modules to disable', default="")
+    parser.add_argument('--cleanup', type=bool, dest='cleanup', help='Clean .temp folder after scanning remotely '
+                                                                     'downloaded plugin', default=False)
 
     args = parser.parse_args()
 

@@ -1,3 +1,8 @@
+certifi==2019.3.9
+chardet==3.0.4
 colorama==0.4.1
+idna==2.8
+requests==2.21.0
 tabulate==0.8.3
 terminaltables==3.1.0
+urllib3==1.24.2
