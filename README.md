@@ -92,5 +92,6 @@ def build_pattern(self, content, file):
 ### Testing
 Running unit tests: `$ python3 -m unittest`
 
-### Thank You
+### Developers
 - [Nikola Gigić](https://github.com/nikolagigic)
+- [Luka Šikić](https://twitter.com/return_0x)
