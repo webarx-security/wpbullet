@@ -11,9 +11,15 @@ wpBullet requires Python 3. It was only tested on Python 3.7
 ## Usage
 Available options:
 ```
---path (required) System path to folder in which plugin files are located, ex. --path="/path/to/plugin"
+--path (required) System path or download URL 
+Examples:
+--path="/path/to/plugin"
+--path="https://wordpress.org/plugins/example-plugin"
+--path="https://downloads.wordpress.org/plugin/example-plugin.1.5.zip"
+
 --enabled (optional) Check only for given modules, ex. --enabled="SQLInjection,CrossSiteScripting"
 --disabled (optional) Don't check for given modules, ex. --disabled="SQLInjection,CrossSiteScripting"
+--cleanup (optional) Automatically remove content of .temp folder after scanning remotely downloaded plugin
 
 $ python wpbullet.py --path="/var/www/wp-content/plugins/plugin-name"
 ```
