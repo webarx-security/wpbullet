@@ -3,7 +3,7 @@ A static code analysis for WordPress Plugins/Themes (and PHP)
 
 
 ## Installation
-Simply clone the repo
+Simply clone the repository, install requirements and run the script 
 - `$ git clone https://github.com/LukaSikic/wpbullet wpbullet` 
 - `$ cd wpbullet`
 - `$ pip install -r requirements.txt`
