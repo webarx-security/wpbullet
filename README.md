@@ -3,9 +3,11 @@ A static code analysis for WordPress Plugins/Themes (and PHP)
 
 
 ## Installation
-wpBullet requires Python 3. It was only tested on Python 3.7
-- `$ git clone https://github.com/LukaSikic/wpbullet` 
-- `$ python3 wpbullet-master/wpbullet.py`
+Simply clone the repo
+- `$ git clone https://github.com/LukaSikic/wpbullet wpbullet` 
+- `$ cd wpbullet`
+- `$ pip install -r requirements.txt`
+- `$ python wpbullet.py`
 
 
 ## Usage
