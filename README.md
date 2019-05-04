@@ -1,4 +1,4 @@
-# wpBullet [![Build Status](https://travis-ci.org/LukaSikic/wpbullet.svg?branch=dev)](https://travis-ci.org/LukaSikic/wpbullet)
+# wpBullet [![Build Status](https://travis-ci.org/LukaSikic/wpbullet.svg?branch=dev)](https://travis-ci.org/LukaSikic/wpbullet)[![Python 2.x|3.x](https://img.shields.io/badge/python-2.x|3.x-yellow.svg)](https://www.python.org/)
 A static code analysis for WordPress Plugins/Themes (and PHP)
 
 
