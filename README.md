@@ -1,3 +1,7 @@
+![alt text](https://raw.githubusercontent.com/LukaSikic/wpbullet/dev/screenshots/1.png "Logo Title Text 1")
+
+
+
 # wpBullet [![Build Status](https://travis-ci.org/LukaSikic/wpbullet.svg?branch=dev)](https://travis-ci.org/LukaSikic/wpbullet) [![Python 2.x|3.x](https://img.shields.io/badge/python-2.x|3.x-yellow.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://github.com/LukaSikic/wpbullet/blob/dev/LICENSE)
 A static code analysis for WordPress Plugins/Themes (and PHP)
 
