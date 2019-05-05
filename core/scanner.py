@@ -58,19 +58,19 @@ def scan(args):
     print()
 
     # Print registered ajax hooks
-    table_instance = SingleTable(passive_check.AJAX_HOOKS_DATA, Fore.YELLOW + " Registered Hooks " + Style.RESET_ALL)
+    table_instance = SingleTable(passive_check.AJAX_HOOKS_DATA, Fore.GREEN + " Registered Hooks " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
     print(table_instance.table)
     print()
 
     # Print admin init functions
-    table_instance = SingleTable(passive_check.ADMIN_INIT_DATA, Fore.YELLOW + " Admin Init " + Style.RESET_ALL)
+    table_instance = SingleTable(passive_check.ADMIN_INIT_DATA, Fore.GREEN + " Admin Init " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
     print(table_instance.table)
     print()
 
     # Print vulnerabilities
-    table_instance = SingleTable(CODE_VULNERABILITIES, Fore.YELLOW + " Found Vulnerabilities " + Style.RESET_ALL)
+    table_instance = SingleTable(CODE_VULNERABILITIES, Fore.RED + " Found Vulnerabilities " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
     print(table_instance.table)
     print()
