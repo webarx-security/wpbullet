@@ -28,7 +28,7 @@ def scan(args):
     # Plugin repository URL
     if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] != ".zip":
         print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading plugin from: " + args.path)
-        download_url = scrape_plugin_download_url(args.path)
+        download_url = scrape_download_url(args.path)
         download_plugin(download_url)
         args.path = ".temp/"
 
@@ -59,6 +59,12 @@ def scan(args):
 
     # Print registered ajax hooks
     table_instance = SingleTable(passive_check.AJAX_HOOKS_DATA, Fore.YELLOW + " Registered Hooks " + Style.RESET_ALL)
+    table_instance.justify_columns[2] = 'left'
+    print(table_instance.table)
+    print()
+
+    # Print admin init functions
+    table_instance = SingleTable(passive_check.ADMIN_INIT_DATA, Fore.YELLOW + " Admin Init " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
     print(table_instance.table)
     print()
@@ -106,10 +112,10 @@ def read_file(path):
 
 
 # Returns download URL from WordPress plugin repository page
-def scrape_plugin_download_url(plugin_url):
+def scrape_download_url(plugin_url):
     r = requests.get(plugin_url)
     response = r.text
-    download_url = re.search('\"downloadUrl\": \"(.+)\",', response)[1].replace("\\", "")
+    download_url = re.search(r'(https://downloads\.wordpress\.org/[a-z]+/[a-z-.0-9_]+)', response)[1].replace("\\", "")
     return download_url
 
 
