@@ -1,19 +1,27 @@
-# wpBullet [![Build Status](https://travis-ci.org/LukaSikic/wpbullet.svg?branch=dev)](https://travis-ci.org/LukaSikic/wpbullet)
+# wpBullet [![Build Status](https://travis-ci.org/LukaSikic/wpbullet.svg?branch=dev)](https://travis-ci.org/LukaSikic/wpbullet) [![Python 2.x|3.x](https://img.shields.io/badge/python-2.x|3.x-yellow.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://github.com/LukaSikic/wpbullet/blob/dev/LICENSE)
 A static code analysis for WordPress Plugins/Themes (and PHP)
 
 
 ## Installation
-wpBullet requires Python 3. It was only tested on Python 3.7
-- `$ git clone https://github.com/LukaSikic/wpbullet` 
-- `$ python3 wpbullet-master/wpbullet.py`
+Simply clone the repository, install requirements and run the script 
+- `$ git clone https://github.com/LukaSikic/wpbullet wpbullet` 
+- `$ cd wpbullet`
+- `$ pip install -r requirements.txt`
+- `$ python wpbullet.py`
 
 
 ## Usage
 Available options:
 ```
---path (required) System path to folder in which plugin files are located, ex. --path="/path/to/plugin"
+--path (required) System path or download URL 
+Examples:
+--path="/path/to/plugin"
+--path="https://wordpress.org/plugins/example-plugin"
+--path="https://downloads.wordpress.org/plugin/example-plugin.1.5.zip"
+
 --enabled (optional) Check only for given modules, ex. --enabled="SQLInjection,CrossSiteScripting"
 --disabled (optional) Don't check for given modules, ex. --disabled="SQLInjection,CrossSiteScripting"
+--cleanup (optional) Automatically remove content of .temp folder after scanning remotely downloaded plugin
 
 $ python wpbullet.py --path="/var/www/wp-content/plugins/plugin-name"
 ```
@@ -92,5 +100,6 @@ def build_pattern(self, content, file):
 ### Testing
 Running unit tests: `$ python3 -m unittest`
 
-### Thank You
+### Developers
 - [Nikola Gigić](https://github.com/nikolagigic)
+- [Luka Šikić](https://twitter.com/return_0x)
