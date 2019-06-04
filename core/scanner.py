@@ -9,6 +9,7 @@ import io
 from terminaltables import AsciiTable, DoubleTable, SingleTable
 from colorama import Fore, Back, Style
 import shutil
+from . import report
 
 
 CODE_VULNERABILITIES = [
@@ -75,9 +76,15 @@ def scan(args):
     print(table_instance.table)
     print()
 
+    # Save report if requested
+    if args.report:
+        report.save_report('admin_init', passive_check.ADMIN_INIT_DATA, args.path)
+        report.save_report('admin_actions', passive_check.ADMIN_ACTIONS_DATA, args.path)
+        report.save_report('ajax_hooks', passive_check.AJAX_HOOKS_DATA, args.path)
+        report.save_report('vulnerabilities', CODE_VULNERABILITIES, args.path)
+
     # Cleanup
     if args.cleanup:
-        print("Doing cleanup")
         shutil.rmtree('.temp')
 
 

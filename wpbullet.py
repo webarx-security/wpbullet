@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--disabled', type=str, dest='disabled', help='Modules to disable', default="")
     parser.add_argument('--cleanup', type=bool, dest='cleanup', help='Clean .temp folder after scanning remotely '
                                                                      'downloaded plugin', default=False)
+    parser.add_argument('--report', type=bool, dest='report', help='Saves JSON report inside reports folder', default=False)
 
     args = parser.parse_args()
 
