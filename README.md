@@ -25,7 +25,8 @@ Examples:
 
 --enabled (optional) Check only for given modules, ex. --enabled="SQLInjection,CrossSiteScripting"
 --disabled (optional) Don't check for given modules, ex. --disabled="SQLInjection,CrossSiteScripting"
---cleanup (optional) Automatically remove content of .temp folder after scanning remotely downloaded plugin
+--cleanup (optional) Automatically remove content of .temp folder after scanning remotely downloaded plugin (boolean)
+--report (optional) Saves result inside reports/ directory in JSON format (boolean)
 
 $ python wpbullet.py --path="/var/www/wp-content/plugins/plugin-name"
 ```
