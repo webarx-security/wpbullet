@@ -1,10 +1,14 @@
-# wpBullet [![Build Status](https://travis-ci.org/LukaSikic/wpbullet.svg?branch=dev)](https://travis-ci.org/LukaSikic/wpbullet) [![Python 2.x|3.x](https://img.shields.io/badge/python-2.x|3.x-yellow.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://github.com/LukaSikic/wpbullet/blob/dev/LICENSE)
+![alt text](https://raw.githubusercontent.com/webarx-security/wpbullet/dev/screenshots/1.png "Logo Title Text 1")
+
+
+
+# wpBullet [![Build Status](https://travis-ci.org/webarx-security/wpbullet.svg?branch=dev)](https://travis-ci.org/webarx-security/wpbullet) [![Python 2.x|3.x](https://img.shields.io/badge/python-2.x|3.x-yellow.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://github.com/webarx-security/wpbullet/blob/dev/LICENSE)
 A static code analysis for WordPress Plugins/Themes (and PHP)
 
 
 ## Installation
 Simply clone the repository, install requirements and run the script 
-- `$ git clone https://github.com/LukaSikic/wpbullet wpbullet` 
+- `$ git clone https://github.com/webarx-security/wpbullet wpbullet` 
 - `$ cd wpbullet`
 - `$ pip install -r requirements.txt`
 - `$ python wpbullet.py`
@@ -99,7 +103,3 @@ def build_pattern(self, content, file):
 
 ### Testing
 Running unit tests: `$ python3 -m unittest`
-
-### Developers
-- [Nikola Gigić](https://github.com/nikolagigic)
-- [Luka Šikić](https://twitter.com/return_0x)
