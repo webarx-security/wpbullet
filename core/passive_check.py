@@ -1,8 +1,6 @@
 import re
-from terminaltables import AsciiTable, DoubleTable, SingleTable
-from colorama import Fore, Back, Style
+from colorama import Fore
 import copy
-from core import modules
 
 ADMIN_ACTIONS_DATA = [
     ['Action Name', 'Function', 'File'],
@@ -15,6 +13,7 @@ AJAX_HOOKS_DATA = [
 ADMIN_INIT_DATA = [
     ['Function', 'File', 'User Input']
 ]
+
 
 def passive_check(content, path):
     scope_admin_actions(content, path)
@@ -54,12 +53,11 @@ def scope_function_content(content, functions):
     results = {}
     for index, function in enumerate(functions):
         try:
-            test = r'function(\s+)' + re.escape(function)+r'(\s|\S)+' + re.escape(functions[index + 1])
             match = re.search(r'function(\s+)' + re.escape(function)+r'(\s|\S)+' + re.escape(functions[index + 1]), content)
 
         except IndexError:
             match = re.search(r'function(\s+)' + re.escape(function) + r'(\s|\S)+', content)
-        results[function] = match[0]
+        results[function] = match.group(0)
     return results
 
 
