@@ -28,8 +28,9 @@ def main():
         argparse.ArgumentParser.print_usage(parser)
         exit(1)
 
-    scanner.scan(args)
-
+    has_vulnerabilities = scanner.scan(args)
+    if has_vulnerabilities:
+        exit(1)
 
 if __name__ == '__main__':
     main()
