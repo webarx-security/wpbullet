@@ -87,6 +87,9 @@ def scan(args):
     if args.cleanup:
         shutil.rmtree('.temp')
 
+    has_vulnerabilities = len(list(CODE_VULNERABILITIES)) > 1
+    return has_vulnerabilities
+
 
 # Check given file for vulnerabilities
 def check_file(file,r, modules):
