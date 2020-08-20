@@ -11,6 +11,11 @@ from colorama import Fore, Back, Style
 import shutil
 from . import report
 
+# if using stdout , utf-8 could be set for all
+# import sys
+# sys.stdout.reconfigure(encoding='utf-8')
+utf8stdout = open(1, 'w', encoding='utf-8', closefd=False) # fd 1 is stdout
+
 
 CODE_VULNERABILITIES = [
     ['Severity', 'Vulnerability', 'File', 'Info']
@@ -28,14 +33,14 @@ def scan(args):
 
     # Plugin repository URL
     if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] != ".zip":
-        print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading plugin from: " + args.path)
+        print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading plugin from: " + args.path ,file=utf8stdout)
         download_url = scrape_download_url(args.path)
         download_plugin(download_url)
         args.path = ".temp/"
 
     # Plugin ZIP download URL
     if args.path[:7] in ['https:/', 'http://'] and args.path[-4:] == ".zip":
-        print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading ZIP plugin from: " + args.path)
+        print(Fore.RED + '[ * ]' + Fore.RESET + " Downloading ZIP plugin from: " + args.path, file=utf8stdout)
         download_plugin(args.path)
         args.path = ".temp/"
 
@@ -49,31 +54,31 @@ def scan(args):
         for file in f:
             if '.php' in file:
                 count_files = count_files + 1
-                print('Checked files: ' + str(count_files), end="\r")
+                print('Checked files: ' + str(count_files), end="\r", file=utf8stdout)
                 check_file(file, r, modules)
 
     # Print registered admin actions
     table_instance = SingleTable(passive_check.ADMIN_ACTIONS_DATA, Fore.GREEN + " Admin Actions " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
-    print(table_instance.table)
+    print(table_instance.table, file=utf8stdout)
     print()
 
     # Print registered ajax hooks
     table_instance = SingleTable(passive_check.AJAX_HOOKS_DATA, Fore.GREEN + " Registered Hooks " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
-    print(table_instance.table)
+    print(table_instance.table, file=utf8stdout)
     print()
 
     # Print admin init functions
     table_instance = SingleTable(passive_check.ADMIN_INIT_DATA, Fore.GREEN + " Admin Init " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
-    print(table_instance.table)
+    print(table_instance.table, file=utf8stdout)
     print()
 
     # Print vulnerabilities
     table_instance = SingleTable(CODE_VULNERABILITIES, Fore.RED + " Found Vulnerabilities " + Style.RESET_ALL)
     table_instance.justify_columns[2] = 'left'
-    print(table_instance.table)
+    print(table_instance.table, file=utf8stdout)
     print()
 
     # Save report if requested
