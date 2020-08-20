@@ -10,7 +10,10 @@ from terminaltables import AsciiTable, DoubleTable, SingleTable
 from colorama import Fore, Back, Style
 import shutil
 from . import report
-sys.stdout.reconfigure(encoding='utf-8')
+
+# if using stdout , utf-8 could be set for all
+# import sys
+# sys.stdout.reconfigure(encoding='utf-8')
 utf8stdout = open(1, 'w', encoding='utf-8', closefd=False) # fd 1 is stdout
 
 
