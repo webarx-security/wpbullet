@@ -11,7 +11,7 @@ Simply clone the repository, install requirements and run the script
 - `$ git clone https://github.com/webarx-security/wpbullet wpbullet` 
 - `$ cd wpbullet`
 - `$ pip install -r requirements.txt`
-- `$ python wpbullet.py`
+- `$ python3 wpbullet.py`
 
 
 ## Usage
@@ -28,7 +28,7 @@ Examples:
 --cleanup (optional) Automatically remove content of .temp folder after scanning remotely downloaded plugin (boolean)
 --report (optional) Saves result inside reports/ directory in JSON format (boolean)
 
-$ python wpbullet.py --path="/var/www/wp-content/plugins/plugin-name"
+$ python3 wpbullet.py --path="/var/www/wp-content/plugins/plugin-name"
 ```
 
 ## Creating modules
