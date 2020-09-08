@@ -11,7 +11,7 @@ Simply clone the repository, install requirements and run the script
 - `$ git clone https://github.com/webarx-security/wpbullet wpbullet` 
 - `$ cd wpbullet`
 - `$ pip install -r requirements.txt`
-- `$ python wpbullet.py`
+- `$ python3 wpbullet.py`
 
 
 ## Usage
