@@ -21,8 +21,7 @@ class FileInclusion(BaseClass):
         "gzopen",
         "gzfile",
         "gzpassthru",
-        "readgzfile",
-        "move_uploaded_file"
+        "readgzfile"
     ]
 
     blacklist = []
