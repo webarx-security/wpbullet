@@ -27,5 +27,6 @@ class CommandExecution(BaseClass):
     # Unless --no-blacklist flag is used, vulnerability
     # is ignored if one bellow matches before variable
     blacklist = [
-        "escapeshellcmd"
+        "escapeshellcmd",
+        "escapeshellarg"
     ]
