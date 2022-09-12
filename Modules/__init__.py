@@ -8,6 +8,7 @@ from .LDAPInjection import LDAPInjection
 from .HeaderInjection import HeaderInjection
 from .OptionsUpdate import OptionsUpdate
 from .ArbitraryFileUpload import ArbitraryFileUpload
+from .PathTraversal import PathTraversal
 
 classes = {
     'CommandExecution': CommandExecution,
@@ -19,5 +20,6 @@ classes = {
     'OptionsUpdate': OptionsUpdate,
     'SQLInjection': SQLInjection,
     'XPATHInjection': XPATHInjection,
-    'ArbitraryFileUpload': ArbitraryFileUpload
+    'ArbitraryFileUpload': ArbitraryFileUpload,
+    'PathTraversal' : PathTraversal
 }
